@@ -27,9 +27,8 @@ jobs:
         with:
           gradle-version: '9.3.1'
 
-      - name: Setup Environment and Keystore
+      - name: Setup Environment and Keystores
         run: |
-          # 1. Accept all Android SDK licenses
           echo "Accepting Android SDK licenses..."
           mkdir -p "$ANDROID_HOME/licenses" 2>/dev/null || true
           echo "24333f8a63b6825ea9c5514f83c2829b004d1fee" > "$ANDROID_HOME/licenses/android-sdk-license"
@@ -37,7 +36,6 @@ jobs:
           echo "84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses 2>/dev/null || true
 
-          # 2. Setup .env file
           echo "Setting up .env file..."
           if [ -f .env.example ]; then
             cp -f .env.example .env
@@ -45,7 +43,6 @@ jobs:
             touch .env
           fi
 
-          # 3. Setup debug and release keystores
           echo "Setting up keystores..."
           if [ -f debug.keystore.base64 ]; then
             base64 -d debug.keystore.base64 > debug.keystore 2>/dev/null || true
@@ -88,4 +85,3 @@ jobs:
           path: app/build/outputs/bundle/release/*.aab
           if-no-files-found: warn
           retention-days: 7
-
