@@ -1,0 +1,7 @@
+{
+  "name": "Triple Crush",
+  "description": "Engaging 3-tile match puzzle game with layered tiles, combo clears, boosters, multiple themes, and challenging levels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
