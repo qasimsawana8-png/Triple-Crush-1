@@ -69,7 +69,7 @@ fun GameTopBar(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 6.dp)
+            .padding(horizontal = 10.dp, vertical = 6.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -85,7 +85,7 @@ fun GameTopBar(
                     .background(SleekPrimaryContainer)
                     .border(1.dp, SleekPrimary.copy(alpha = 0.3f), RoundedCornerShape(20.dp))
                     .clickable { onLevelsClick() }
-                    .padding(horizontal = 12.dp, vertical = 6.dp)
+                    .padding(horizontal = 10.dp, vertical = 6.dp)
                     .testTag("level_select_button")
             ) {
                 Icon(
@@ -94,12 +94,12 @@ fun GameTopBar(
                     tint = SleekPrimary,
                     modifier = Modifier.size(18.dp)
                 )
-                Spacer(modifier = Modifier.width(6.dp))
+                Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "Level ${uiState.currentLevel}",
+                    text = "Lvl ${uiState.currentLevel}",
                     color = SleekPrimary,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp
+                    fontSize = 13.sp
                 )
             }
 
@@ -111,7 +111,7 @@ fun GameTopBar(
                     .clip(RoundedCornerShape(20.dp))
                     .background(Color.White)
                     .border(1.dp, SleekOutline, RoundedCornerShape(20.dp))
-                    .padding(horizontal = 12.dp, vertical = 6.dp)
+                    .padding(horizontal = 10.dp, vertical = 6.dp)
             ) {
                 Text(
                     text = "⭐ ${uiState.score}",
@@ -119,7 +119,7 @@ fun GameTopBar(
                     fontWeight = FontWeight.Black,
                     fontSize = 13.sp
                 )
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(6.dp))
                 Text(
                     text = "⏱️ ${formatTime(uiState.timeElapsedSeconds)}",
                     color = SleekOnBackground,
@@ -138,11 +138,11 @@ fun GameTopBar(
                         .clip(RoundedCornerShape(20.dp))
                         .background(Color(0xFFFFF8E1))
                         .border(1.dp, Color(0xFFFFD54F), RoundedCornerShape(20.dp))
-                        .padding(horizontal = 10.dp, vertical = 5.dp)
+                        .padding(horizontal = 8.dp, vertical = 5.dp)
                         .testTag("coins_indicator")
                 ) {
                     Text(text = "🪙", fontSize = 13.sp)
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(3.dp))
                     Text(
                         text = "${playerProgress?.totalCoins ?: 0}",
                         color = Color(0xFFE65100),
@@ -153,43 +153,43 @@ fun GameTopBar(
 
                 Spacer(modifier = Modifier.width(6.dp))
 
-                // Themes (Sleek white circle button)
+                // Themes (Sleek white circle button - prominent on mobile)
                 IconButton(
                     onClick = onThemesClick,
                     modifier = Modifier
-                        .size(36.dp)
-                        .shadow(2.dp, CircleShape, ambientColor = Color(0x111D1B20))
+                        .size(44.dp)
+                        .shadow(3.dp, CircleShape, ambientColor = Color(0x111D1B20))
                         .clip(CircleShape)
                         .background(Color.White)
-                        .border(1.dp, SleekOutline, CircleShape)
+                        .border(1.5.dp, SleekOutline, CircleShape)
                         .testTag("theme_button")
                 ) {
                     Icon(
                         imageVector = Icons.Default.Palette,
                         contentDescription = "Themes",
                         tint = SleekPrimary,
-                        modifier = Modifier.size(18.dp)
+                        modifier = Modifier.size(24.dp)
                     )
                 }
 
-                Spacer(modifier = Modifier.width(4.dp))
+                Spacer(modifier = Modifier.width(6.dp))
 
-                // Settings (Sleek white circle button)
+                // Settings (Prominent, easy to tap circle button on mobile)
                 IconButton(
                     onClick = onSettingsClick,
                     modifier = Modifier
-                        .size(36.dp)
-                        .shadow(2.dp, CircleShape, ambientColor = Color(0x111D1B20))
+                        .size(44.dp)
+                        .shadow(3.dp, CircleShape, ambientColor = Color(0x111D1B20))
                         .clip(CircleShape)
                         .background(Color.White)
-                        .border(1.dp, SleekOutline, CircleShape)
+                        .border(1.5.dp, SleekOutline, CircleShape)
                         .testTag("settings_button")
                 ) {
                     Icon(
                         imageVector = Icons.Default.Settings,
                         contentDescription = "Settings",
                         tint = SleekPrimary,
-                        modifier = Modifier.size(18.dp)
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }

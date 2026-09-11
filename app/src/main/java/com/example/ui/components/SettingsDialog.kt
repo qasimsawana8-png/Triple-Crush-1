@@ -202,7 +202,7 @@ fun SettingsDialog(
                 Spacer(modifier = Modifier.height(14.dp))
 
                 Text(
-                    text = "Triple Crush • Version 1.1.0",
+                    text = "Triple Crush • Version 1.2.0",
                     color = SleekOnBackground.copy(alpha = 0.5f),
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Medium,
